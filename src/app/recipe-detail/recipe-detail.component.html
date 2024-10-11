@@ -1,0 +1,25 @@
+<div class="container my-5" *ngIf="recipe">
+    <div class="col-md-12">
+        <div class="image-wrapper mb-2">
+            <div class="blured-background" [style.background-image]="'url(' + recipe.image + ')'"></div>
+            <img [src]="recipe.image" alt="{{ recipe.title }}" class="main-image" />
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card blured-card shadow-lg p-3 mb-3">
+            <div class="card-body">
+                <h2 class="text-success fw-bold">{{ recipe.title }}</h2>
+                <div class="text-white">
+                    <h5 class="text-decoration-underline">Ingredients:</h5>
+                    <ul>
+                        <li *ngFor="let ingredient of recipe.extendedIngredients">
+                            {{ ingredient.original }}
+                        </li>
+                    </ul>
+                    <h5 class="text-decoration-underline">Instructions:</h5>
+                    <p [innerHTML]="recipe.instructions"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
